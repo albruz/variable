@@ -1,0 +1,11 @@
+---
+- hosts: all
+  vars:
+    http_port: 80
+    max_clients: 200
+  remote_user: root
+  tasks:
+
+  - name: copia nuova pagina dal repository github
+    action: git repo=https://github.com/albruz/variable.git  dest=/var/www/html version={{ version }} force=yes
+    become: true
